@@ -1,6 +1,7 @@
-def translate(m1, m2):
+def translate(m1, m2, should_switch=True):
     out = []
-    m2 = switch(m2)
+    if should_switch:
+        m2 = switch(m2)
     for row in m1:
         r = []
         for column in m2:
@@ -21,11 +22,3 @@ def switch(m):
         m2.append(c)
     return m2
 
-
-
-"""
-    [ x y z ]
-    [ a b c ]
-    [ 1 2 3 ]
-
-"""
