@@ -1,5 +1,7 @@
 from math import sin, cos, radians, pi
 from engine.math import multiply
+
+
 def print_matrix(m):
     s = 4
     for row in m:
@@ -7,8 +9,22 @@ def print_matrix(m):
         for e in row:
             l = len(str(e))
             s = max(l, s)
-            print(e, end=" " * (s - l+1))
+            print(e, end=" " * (s - l + 1))
         print("]")
+
+
+def scale(m, scale):
+    final = []
+    for i in m:
+        mi = []
+        for j in i:
+            mj = []
+            for k in j:
+                mj.append(k * scale)
+            mi.append(mj)
+        final.append(mi)
+    return final
+
 
 def project(model, p_matrix):
     model2 = []
@@ -44,6 +60,7 @@ def read_model(path):
 
     return m
 
+
 def rotate_x(m, a):
     r_m = [
         (1, 0, 0),
@@ -52,6 +69,7 @@ def rotate_x(m, a):
     ]
     return multiply(m, r_m)
 
+
 def rotate_y(m, a):
     r_m = [
         (cos(radians(a)), 0, sin(radians(a))),
@@ -59,6 +77,7 @@ def rotate_y(m, a):
         (-sin(radians(a)), 0, cos(radians(a)))
     ]
     return multiply(m, r_m)
+
 
 def rotate_z(m, a):
     r_m = [
