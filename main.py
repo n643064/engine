@@ -59,8 +59,10 @@ def main(model_path):
         for i in range(len(model)):
             model[i] = rotate_y(model[i], 1)
             model[i] = rotate_y(model[i], 1)
-            model[i] = rotate_x(model[i], 1)
-            model[i] = rotate_x(model[i], 1)
+            model[i] = rotate_x(model[i], 0.1)
+            model[i] = rotate_x(model[i], 0.1)
+            model[i] = rotate_z(model[i], 0.5)
+            model[i] = rotate_z(model[i], 0.5)
         window.blit(pygame.transform.scale(screen, window.get_size()), (0, 0))
         pygame.display.flip()
         clock.tick(60)
